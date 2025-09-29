@@ -9,7 +9,7 @@ const emailSender = async (options) => {
     // tls: {
     //   rejectUnauthorized: false,
     // },
-    secure: false, // true for 465, false for other ports
+    secure: true, // true for 465, false for other ports
     auth: {
       user: process.env.APP_USER,
       pass: process.env.APP_PASSWORD,
