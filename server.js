@@ -4,11 +4,14 @@ const app = express()
 const cors = require('cors')
 app.use(cors('*'))
 app.use(express.json())
-const PORT = process.env.PORT || 7000
 
 const userRouter = require('./route/userRoute')
 app.use(userRouter)
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+app.get('/', (req, res) => {
+  return res.status(200).json({
+    message: 'Connection successfull backend is running',
+  })
 })
+
+module.exports = app
