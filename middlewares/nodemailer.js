@@ -4,7 +4,12 @@ const emailSender = async (options) => {
   // Create a test account or replace with real credentials.
   const transporter = nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE,
-    // true for 465, false for other ports
+    host: process.env.MAIL_HOST,
+    port: 587,
+    tls: {
+      rejectUnauthorized: false,
+    },
+    secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.APP_USER,
       pass: process.env.APP_PASSWORD,
