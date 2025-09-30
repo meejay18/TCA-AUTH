@@ -6,9 +6,9 @@ const emailSender = async (options) => {
     service: process.env.EMAIL_SERVICE,
     host: process.env.MAIL_HOST,
     port: 587,
-    tls: {
-      rejectUnauthorized: false,
-    },
+    // tls: {
+    //   rejectUnauthorized: false,
+    // },
     secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.APP_USER,
