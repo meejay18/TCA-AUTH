@@ -4,7 +4,7 @@ const app = express()
 const cors = require('cors')
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
+    origin: ['http://localhost:3200', 'https://your-frontend.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   })
