@@ -2,7 +2,13 @@ const express = require('express')
 require('./config/database')
 const app = express()
 const cors = require('cors')
-app.use(cors('*'))
+app.use(
+  cors({
+    origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  })
+)
 app.use(express.json())
 
 const userRouter = require('./route/userRoute')
@@ -17,4 +23,4 @@ app.get('/', (req, res) => {
 // app.listen(process.env.PORT, () => {
 //   console.log(`Server running on port ${process.env.PORT}`)
 // })
-module.exports = app
+// module.exports = app
