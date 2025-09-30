@@ -33,6 +33,7 @@ exports.signUp = async (req, res) => {
 
     // Email options for sending email
     const emailOption = {
+      from: 'Mije <onboarding@resend.dev>',
       email: user.email,
       subject: 'Graduation note',
       html: signUpTemplate(link, user.firstName),
