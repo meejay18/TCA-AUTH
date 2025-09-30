@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { signUpTemplate, verificationTemplate, resetPasswordTemplate } = require('../utils/emailTemplate')
 const emailSender = require('../middlewares/nodemailer')
+const { resendEmail } = require('../middlewares/resend')
 
 exports.signUp = async (req, res) => {
   const { firstName, lastName, email, password } = req.body
@@ -39,6 +40,7 @@ exports.signUp = async (req, res) => {
 
     // send the email to the user
     await emailSender(emailOption)
+    // await resendEmail(emailOption)
 
     // send a response
     return res.status(201).json({
